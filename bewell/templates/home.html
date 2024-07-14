@@ -1,0 +1,355 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block style %}
+<link rel="stylesheet" href="{% static  'css/style.css' %}">
+{% endblock %}
+
+{% block navbar %}
+  {% include 'navbar.html'%}
+{% endblock %}
+{% block content %}
+  <main>
+    <article>
+
+      <section class="section hero bg-dark has-after has-bg-image" id="home" aria-label="hero" data-section
+        style="background-image: url('./assets/images/hero-bg.png')">
+        <div class="container">
+
+          <div class="hero-content">
+
+            <p class="hero-subtitle">
+              <strong class="strong">The Best</strong>Fitness System
+            </p>
+
+            <h1 class="h1 hero-title">Guiding You to Optimal Health</h1>
+
+            <p class="section-text">
+              We are here to elevate your everyday living to a healthier standard. Click below to start your health routine survey, 
+              and we'll create a personalized wellness plan covering sleep, diet, hydration, and exercise just for you.
+            </p>
+
+            <a href="#" class="btn btn-primary">Get Started</a>
+
+          </div>
+
+          <div class="hero-banner">
+
+            <img src="{% static 'web_image/hero-banner.png' %}" width="660" height="753" alt="hero banner" class="w-100">
+
+              <img src="{% static 'web_image/hero-circle-one.png' %}" width="666" height="666" aria-hidden="true" alt="" class="circle circle-2">
+              <img src="{% static 'web_image/hero-circle-two.png' %}" width="666" height="666" aria-hidden="true" alt="" class="circle circle-2">
+
+          </div>
+
+        </div>
+      </section>
+
+
+
+      <!-- 
+        - #ABOUT
+      -->
+
+      <section class="section about" id="about" aria-label="about">
+        <div class="container">
+
+          <div class="about-banner has-after">
+            <img src="{% static 'web_image/about-banner.png' %}" width="660" height="648" loading="lazy" alt="about banner"
+              class="w-100">
+
+            <img src="{% static 'web_image/about-circle-one.png' %}" width="660" height="534" loading="lazy" aria-hidden="true"
+              alt="" class="circle circle-1">
+              <img src="{% static 'web_image/about-circle-two.png' %}" width="660" height="534" loading="lazy" aria-hidden="true"
+              alt="" class="circle circle-1">
+              <img src="{% static 'web_image/fitness.png' %}" width="660" height="534" loading="lazy" aria-hidden="true"
+              alt="" class="circle circle-1">
+
+          </div>
+
+          <div class="about-content">
+
+            <p class="section-subtitle">About Us</p>
+
+            <h2 class="h2 section-title">Welcome To BeWell</h2>
+
+            <p class="section-text">
+              At BeWell, we specialize in crafting personalized wellness plans that cater to your unique needs and goals. Our process begins with a detailed user survey to understand your current habits and health objectives. From this data, we offer tailored hydration reminders, optimize your sleep schedule, provide customized dietary guidance, and design exercise plans that align with your fitness level and aspirations.
+            </p>
+
+            <p class="section-text">
+              Our mission is to empower you to develop sustainable, healthy habits that fit seamlessly into your daily life. By focusing on key areas such as hydration, sleep, nutrition, and physical activity, we ensure you have the tools and support needed for a balanced and fulfilling lifestyle. Join BeWell and embark on a journey towards a happier, healthier you.
+            </p>
+
+          </div>
+
+        </div>
+      </section>
+
+      <!-- 
+        - #CLASS
+      -->
+
+      <section class="section class bg-dark has-bg-image" id="class" aria-label="class"
+        style="background-image: url('./assets/images/classes-bg.png')">
+        <div class="container">
+
+          <p class="section-subtitle">Categories</p>
+
+          <h2 class="h2 section-title text-center">Features of BeWell</h2>
+
+          <ul class="class-list has-scrollbar">
+
+            <li class="scrollbar-item">
+              <div class="class-card">
+
+                <figure class="card-banner img-holder" style="--width: 416; --height: 240;">
+                  <img src="{% static 'web_image/class-1.png' %}" width="52" height="52" loading="lazy" alt="Water Reminder"
+                    class="img-cover">
+                </figure>
+
+                <div class="card-content">
+
+                  <div class="title-wrapper">
+                
+                    <img src="{% static 'web_image/class-icon-1.png' %}" width="52" height="52" aria-hidden="true" alt=""
+                      class="title-icon">
+
+                    <h3 class="h3">
+                      <a href="#" class="card-title">Water Reminder</a>
+                    </h3>
+                  </div>
+
+                  <p class="card-text">
+                    Stay hydrated effortlessly with BeWell's Water Reminder. Set your preferred reminders based on your hydration goals—whether it's hourly prompts or specific times throughout the day. Achieve optimal hydration for a healthier you.                  
+                  </p>
+
+                </div>
+
+              </div>
+            </li>
+
+            <li class="scrollbar-item">
+              <div class="class-card">
+
+                <figure class="card-banner img-holder" style="--width: 416; --height: 240;">
+                  <img src="{% static 'web_image/class-2.jpg' %}" width="416" height="240" loading="lazy" alt="Dietary Guidance"
+                    class="img-cover">
+                </figure>
+
+                <div class="card-content">
+
+                  <div class="title-wrapper">
+                    <img src="{% static 'web_image/class-icon-2.png' %}" width="52" height="52" aria-hidden="true" alt=""
+                      class="title-icon">
+
+                    <h3 class="h3">
+                      <a href="#" class="card-title">Dietary Guidance</a>
+                    </h3>
+                  </div>
+
+                  <p class="card-text">
+                    Customize your meal plan with BeWell's Dietary Guidance. Tell us your daily meal preferences, and your health goals like weight loss or muscle gain. Our system creates a personalized diet routine to support your journey to better health.
+                  </p>
+
+
+                </div>
+
+              </div>
+            </li>
+
+            <li class="scrollbar-item">
+              <div class="class-card">
+
+                <figure class="card-banner img-holder" style="--width: 416; --height: 240;">
+                  <img src="{% static 'web_image/class-3.jpg' %}" width="416" height="240" loading="lazy" alt="Exercise Planning"
+                    class="img-cover">
+                </figure>
+
+                <div class="card-content">
+
+                  <div class="title-wrapper">
+                    <img src="{% static 'web_image/class-icon-3.png' %}" width="52" height="52" aria-hidden="true" alt=""
+                      class="title-icon">
+
+                    <h3 class="h3">
+                      <a href="#" class="card-title">Exercise Planning</a>
+                    </h3>
+                  </div>
+
+                  <p class="card-text">
+                    Customize your fitness journey with BeWell's Exercise Planning. Select weight loss, muscle gain, or cardio goals, and receive personalized workout reminders to help you achieve your fitness objectives.
+                  </p>
+
+                </div>
+
+              </div>
+            </li>
+
+            <li class="scrollbar-item">
+              <div class="class-card">
+
+                <figure class="card-banner img-holder" style="--width: 416; --height: 240;">
+                  <img src="{% static 'web_image/class-4.jpg' %}" width="416" height="240" loading="lazy" alt="The Fitness Pack"
+                    class="img-cover">
+                </figure>
+
+                <div class="card-content">
+
+                  <div class="title-wrapper">
+                    <img src="images/class-icon-4.jpg" width="52" height="52" aria-hidden="true" alt=""
+                      class="title-icon">
+
+                    <h3 class="h3">
+                      <a href="#" class="card-title">Sleep Schedule</a>
+                    </h3>
+                  </div>
+
+                  <p class="card-text">
+                    Manage your sleep effectively with BeWell's Sleep Schedule. Customize your bedtime, wake-up time, and preferred sleep duration to receive personalized reminders. Establish a structured sleep routine designed to optimize your rest and overall well-being.
+                  </p>                
+
+                </div>
+
+              </div>
+            </li>
+
+          </ul>
+
+        </div>
+      </section>
+
+
+
+    </article>
+  </main>
+
+  <footer class="footer" id="footer">
+
+    <div class="section footer-top">
+      <div class="container">
+
+        <div class="footer-brand">
+
+          <a href="#home" class="logo">
+            <!-- <ion-icon name="barbell-sharp" aria-hidden="true"></ion-icon> -->
+            <img src="{% static 'web_image/logo.png' %}" alt="Logo" class="min-size">
+            <span class="span">BeWell</span>
+          </a>
+
+          <p class="footer-brand-text">
+            We are available in following time durations: 
+          </p>
+
+          <div class="wrapper">
+
+            <img src="{% static 'web_image/footer-clock.png' %}" width="34" height="34" loading="lazy" alt="Clock">
+
+            <ul class="footer-brand-list">
+
+              <li>
+                <p class="footer-brand-title">Monday - Friday</p>
+
+                <p>7:00Am - 10:00Pm</p>
+              </li>
+
+              <li>
+                <p class="footer-brand-title">Saturday - Sunday</p>
+
+                <p>7:00Am - 2:00Pm</p>
+              </li>
+
+            </ul>
+
+          </div>
+
+        </div>
+
+        <ul class="footer-list">
+
+          <li>
+            <p class="footer-list-title has-before">Our Links</p>
+          </li>
+
+          <li>
+            <a href="#home" class="footer-link">Home</a>
+          </li>
+
+          <li>
+            <a href="#about" class="footer-link">About Us</a>
+          </li>
+
+          <li>
+            <a href="#class" class="footer-link">Categories</a>
+          </li>
+
+          <li>
+            <a href="#footer" class="footer-link">Contact Us</a>
+          </li>
+
+        </ul>
+
+        <ul class="footer-list">
+
+          <li>
+            <p class="footer-list-title has-before">Contact Us</p>
+          </li>
+
+          <li class="footer-list-item">
+            <div class="icon">
+              <ion-icon name="location" aria-hidden="true"></ion-icon>
+            </div>
+
+            <address class="address footer-link">
+              Bagmati | Province-03, 4th Rajkulo, Kharibot, Imadol, Lalitpur
+            </address>
+          </li>
+
+          <li class="footer-list-item">
+            <div class="icon">
+              <ion-icon name="call" aria-hidden="true"></ion-icon>
+            </div>
+
+            <div>
+              <a href="tel:01-5522330" class="footer-link">01-5522330</a>
+
+              <a href="tel:01-5500112" class="footer-link">01-5500112</a>
+            </div>
+          </li>
+
+          <li class="footer-list-item">
+            <div class="icon">
+              <ion-icon name="mail" aria-hidden="true"></ion-icon>
+            </div>
+
+            <div>
+              <a href="mailto:info@bewell.com" class="footer-link">info@bewell.com</a>
+
+              <a href="mailto:services@bewell.com" class="footer-link">services@bewell.com</a>
+            </div>
+          </li>
+
+        </ul>
+
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container">
+
+        <p class="copyright">
+          &copy; 2024 BeWell. All Rights Reserved By <a href="#" class="copyright-link">Kathford Int'l College of Management.</a>
+        </p>
+
+
+      </div>
+    </div>
+
+  </footer>
+
+
+  <script src="{% static 'js/script.js' %}"></script>
+
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+{% endblock %}
