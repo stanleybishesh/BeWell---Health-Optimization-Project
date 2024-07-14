@@ -1,0 +1,49 @@
+{% load static %}
+{% block style %}
+<link rel="stylesheet" href="{% static  'css/style.css' %}">
+{% endblock %}
+
+<header class="header" data-header>
+    <div class="container">
+
+      <a href="{% url 'bewell:home' %}" class="logo">
+      <img src="{% static 'web_image/logo.png' %}" alt="Logo" class="min-size">
+        <span class="span">BeWell</span>
+      </a>
+      <nav class="navbar" data-navbar>
+
+        <button class="nav-close-btn" aria-label="close menu" data-nav-toggler>
+          <ion-icon name="close-sharp" aria-hidden="true"></ion-icon>
+        </button>
+
+        <ul class="navbar-list">
+
+          <li>
+            <a href="#home" class="navbar-link" data-nav-link>Home</a>
+          </li>
+
+          <li>
+            <a href="#about" class="navbar-link" data-nav-link>About Us</a>
+          </li>
+
+          <li>
+            <a href="#class" class="navbar-link" data-nav-link>Categories</a>
+          </li>
+
+          <li>
+            <a href="#footer" class="navbar-link" data-nav-link>Contact Us</a>
+          </li>
+
+        </ul>
+
+      </nav>
+    <a href="{% url 'bewell:survey' %}" class="btn btn-secondary">Get Started</a>
+
+      <button class="nav-open-btn" aria-label="open menu" data-nav-toggler>
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </button>
+
+    </div>
+  </header>

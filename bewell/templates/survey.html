@@ -1,0 +1,697 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block style %}
+<style>
+  :root {
+    --primary-color: #010712;
+    --secondary-color: #818386;
+    --bg-color: #FCFDFD;
+    --button-color: #5AD62B;
+    --h1-color: #3F444C;
+  }
+
+  [data-theme="dark"] {
+    --primary-color: #FCFDFD;
+    --secondary-color: #818386;
+    --bg-color: #010712;
+    --button-color: #818386;
+    --h1-color: #FCFDFD;
+  }
+
+  * {
+    margin: 0;
+    box-sizing: border-box;
+    transition: all 0.3s ease-in-out;
+  }
+
+  .contact-container {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    background: var(--bg-color);
+  }
+
+  .left-col {
+    width: 45vw;
+    height: 100%;
+    background-image: url("https://img.freepik.com/premium-photo/vegetable-vertical-background-healthy-food-autumn-harvest-fresh-vegetables-top-view-organic-concept_217690-429.jpg?w=360");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  .logo {
+    width: 10rem;
+    padding: 1.5rem;
+  }
+
+  .right-col {
+    background: var(--bg-color);
+    width: 50vw;
+    height: 100vh;
+    padding: 5rem 3.5rem;
+  }
+
+  h1,
+  label,
+  button,
+  .description {
+    font-family: 'Jost', sans-serif;
+    font-weight: 400;
+    letter-spacing: 0.1rem;
+  }
+
+  h1 {
+    color: var(--h1-color);
+    text-transform: uppercase;
+    font-size: 2.5rem;
+    letter-spacing: 0.5rem;
+    font-weight: bold;
+  }
+
+  p {
+    color: var(--secondary-color);
+    font-size: 0.9rem;
+    letter-spacing: 0.01rem;
+    width: 40vw;
+    margin: 0.25rem 0;
+  }
+
+  label,
+  .description {
+    font-weight: bold;
+    color: black;
+    text-transform: lowercase;
+    font-family: sans-serif;
+    font-size: 1rem;
+  }
+
+  form {
+    width: 31.25rem;
+    position: relative;
+    margin-top: 2rem;
+    padding: 1rem 0;
+  }
+
+  input,
+  textarea,
+  label {
+    width: 40vw;
+    display: block;
+  }
+
+  p,
+  placeholder,
+  input,
+  textarea {
+    font-family: 'Helvetica Neue', sans-serif;
+  }
+
+  input::placeholder,
+  textarea::placeholder {
+    color: var(--primary-color);
+  }
+
+  input,
+  textarea {
+    color: var(--primary-color);
+    font-weight: 500;
+    background: var(--bg-color);
+    border: none;
+    border-bottom: 1px solid var(--secondary-color);
+    padding: 0.5rem 0;
+    margin-bottom: 1rem;
+    outline: none;
+  }
+
+  textarea {
+    resize: none;
+  }
+
+  button {
+    text-transform: uppercase;
+    font-weight: 300;
+    background: var(--button-color);
+    color: var(--bg-color);
+    width: 10rem;
+    height: 2.25rem;
+    border: none;
+    border-radius: 2px;
+    outline: none;
+    cursor: pointer;
+  }
+
+  input:hover,
+  textarea:hover,
+  button:hover {
+    opacity: 0.5;
+  }
+
+  button:active {
+    opacity: 0.8;
+  }
+
+  /* Toggle Switch */
+
+  .theme-switch-wrapper {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    width: 160px;
+    position: absolute;
+    right: 0;
+  }
+
+  .theme-switch {
+    display: inline-block;
+    height: 34px;
+    position: relative;
+    width: 60px;
+  }
+
+  .theme-switch input {
+    display: none;
+  }
+
+  .slider {
+    background-color: #ccc;
+    bottom: 0;
+    cursor: pointer;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transition: .4s;
+  }
+
+  .slider:before {
+    background-color: #fff;
+    bottom: 0.25rem;
+    content: "";
+    width: 26px;
+    height: 26px;
+    left: 0.25rem;
+    position: absolute;
+    transition: .4s;
+  }
+
+  input:checked + .slider {
+    background-color: var(--button-color);
+  }
+
+  input:checked + .slider:before {
+    transform: translateX(26px);
+  }
+
+  .slider.round {
+    border-radius: 34px;
+  }
+
+  .slider.round:before {
+    border-radius: 50%;
+  }
+
+  #error,
+  #success-msg {
+    width: 40vw;
+    margin: 0.125rem 0;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    font-family: 'Jost';
+    color: var(--secondary-color);
+  }
+
+  #success-msg {
+    transition-delay: 3s;
+  }
+
+  @media only screen and (max-width: 950px) {
+    .logo {
+      width: 8rem;
+    }
+    h1 {
+      font-size: 1.75rem;
+    }
+    p {
+      font-size: 0.7rem;
+    }
+    input,
+    textarea,
+    button {
+      font-size: 0.65rem;
+    }
+    .description {
+      font-size: 0.3rem;
+      margin-left: 0.4rem;
+    }
+    button {
+      width: 7rem;
+    }
+    .theme-switch-wrapper {
+      width: 120px;
+    }
+    .theme-switch {
+      height: 28px;
+      width: 50px;
+    }
+
+    .theme-switch input {
+      display: none;
+    }
+
+    .slider:before {
+      background-color: #fff;
+      bottom: 0.25rem;
+      content: "";
+      width: 20px;
+      height: 20px;
+      left: 0.25rem;
+      position: absolute;
+      transition: .4s;
+    }
+
+    input:checked + .slider:before {
+      transform: translateX(16px);
+    }
+
+    .slider.round {
+      border-radius: 15px;
+    }
+
+    .slider.round:before {
+      border-radius: 50%;
+    }
+  }
+
+  /* Additional styling for specific elements */
+  #water_interval,
+  #gender,
+  #water,
+  #sleep_hour {
+    font-size: 1rem;
+  }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="contact-container">
+  <div class="left-col"></div>
+  <div class="right-col">
+    <div class="theme-switch-wrapper">
+      <label class="theme-switch" for="checkbox"></label>
+    </div>
+
+    <h1>Fill the answer</h1>
+
+    <form id="contact-form" method="post">
+      {% csrf_token %}
+      <label for="name">Full name</label>
+      <input type="text" id="name" name="name" placeholder="Your Full Name" required>
+
+      <label for="email">Email Address</label>
+      <input type="email" id="email" name="email" placeholder="Your Email Address" required>
+
+      <label for="age">Age:</label>
+      <input type="number" id="age" name="age" min="0" required>
+
+      <label for="gender">Gender:</label>
+      <select id="gender" name="gender" required>
+        <option value="">Select Gender</option>
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+      </select>
+
+      <br><br>
+      <label for="height">Height (cm):</label>
+      <input type="number" id="height" name="height" min="0" required>
+
+      <label for="weight">Weight (kg):</label>
+      <input type="number" id="weight" name="weight" min="0" required>
+
+      <label>Are you having trouble sleeping?</label>
+      <div>
+        <label for="yes" class="radio" style="display:inline;">Yes</label>
+
+        <input type="radio" id="yes" name="trouble_sleeping" value="True" required>
+        <label for="no" class="radio">No</label>
+
+        <input type="radio" id="no" name="trouble_sleeping" value="False">
+      </div>
+      <br>
+      <label for="water">Drinking water per day:</label>
+      <select id="water" name="water" required>
+        <option value="">Select water intake</option>
+        <option value="1">1 litre</option>
+        <option value="2">2 litres</option>
+        <option value="3">3 litres</option>
+        <option value="4">4 litres</option>
+      </select>
+      <br><br>
+      <label for="water_interval">Set a time interval for drinking water:</label>
+      <select id="water_interval" name="water_interval" required>
+        <option value="">Select interval</option>
+        <option value="15">Every 15 minutes</option>
+        <option value="30">Every 30 minutes</option>
+        <option value="45">Every 45 minutes</option>
+        <option value="60">Every 1 hour</option>
+      </select>
+      <br><br>
+
+
+      <label for="wake_up_time">When do you want to wake up?</label>
+      <input type="time" id="wake_up_time" name="wake_up_time">
+
+      <label for="sleep_hour">Select hours of sleep:</label>
+      <select id="sleep_hour" name="sleep_hour" required>
+        <option value="">Select hour</option>
+        <option value="7">7 hours</option>
+        <option value="8">8 hours</option>
+        <option value="9">9 hours</option>
+      </select>
+      <br><br>
+      <button onclick="calculateBedTime()">Calculate Bedtime</button>
+      <p id="bedtime_result"></p>
+
+      <br><br>
+      <button type="submit">Submit</button>
+    </form>
+
+    <div id="error"></div>
+    <div id="success-msg"></div>
+  </div>
+</div>
+
+<script>
+  function calculateBedTime() {
+    // Get wake-up time input value
+    let wakeUpTime = document.getElementById('wake_up_time').value;
+
+    // Get selected sleep duration in hours
+    let sleepDuration = parseInt(document.getElementById('sleep_hour').value);
+
+    // Parse wake-up time to hours and minutes
+    let [hours, minutes] = wakeUpTime.split(':').map(Number);
+
+    // Calculate bedtime by subtracting sleep duration from wake-up time
+    let bedtimeHours = hours - sleepDuration;
+    let bedtimeMinutes = minutes;
+
+    // Adjust bedtime if it goes into the previous day
+    if (bedtimeHours < 0) {
+      bedtimeHours += 24; // Handle negative hours by adding 24 hours
+    }
+
+    // Format bedtime to display
+    let formattedBedtime = `${bedtimeHours.toString().padStart(2, '0')}:${bedtimeMinutes.toString().padStart(2, '0')}`;
+
+    // Display the calculated bedtime
+    document.getElementById('bedtime_result').textContent = `Your bedtime should be around ${formattedBedtime}`;
+
+    // Request permission for notifications
+    if ('Notification' in window && Notification.permission !== 'denied') {
+      Notification.requestPermission().then(permission => {
+        if (permission === 'granted') {
+          // Schedule notifications
+          scheduleNotification('Setting up time', 'Your wake-up and sleep time are being set.');
+          scheduleNotification('Bedtime Reminder', `It's bedtime!`, bedtimeHours, bedtimeMinutes);
+          scheduleNotification('Wake Up Reminder', `It's time to wake up!`, hours, minutes);
+        }
+      });
+    }
+  }
+
+  function scheduleNotification(title, body, hours, minutes) {
+    // Calculate notification time
+    let now = new Date();
+    let notificationTime = new Date(now.getFullYear(), now.getMonth(), now.getDate(), hours, minutes);
+
+    // Adjust notification time if it's in the past (for bedtime)
+    if (notificationTime < now) {
+      notificationTime.setDate(notificationTime.getDate() + 1); // Add one day
+    }
+
+    // Create notification
+    setTimeout(() => {
+      new Notification(title, {
+        body
+      });
+    }, notificationTime.getTime() - now.getTime());
+  }
+</script>
+<!-- Image credit: Oliver Sjöström https://www.pexels.com/photo/body-of-water-near-green-mountain-931018/  -->
+{% endblock %}
+
+
+{% comment %} 
+{% extends 'base.html' %}
+{% load static %}
+{% block style %}
+<style>
+    html, body {
+        min-height: 100%;
+        background-color: #f8f9fa; /* Light background color like Bootstrap */
+    }
+    body, div, form, input, select, textarea, p {
+        padding: 0;
+        margin: 0;
+        outline: none;
+        font-family: Roboto, Arial, sans-serif;
+        font-size: 14px;
+        color: #666;
+        line-height: 22px;
+    }
+    h1 {
+        position: absolute;
+        margin: 0;
+        font-size: 38px;
+        color: #fff;
+        z-index: 2;
+    }
+    .container {
+        max-width: 1140px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+    .testbox {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: inherit;
+        padding: 20px;
+    }
+    form {
+        width: 100%;
+        max-width: 600px; /* Set a max-width for the form */
+        padding: 20px;
+        border-radius: 6px;
+        background: #fff;
+        box-shadow: 0 0 25px 0 rgba(137, 46, 155, 0.5); /* Slightly lighter shadow */
+        margin: 0 auto; /* Center the form horizontally */
+    }
+    .banner {
+        position: relative;
+        height: 210px;
+        background-image: url("{% static 'uploads/media/default/0001/01/b42dddca6e6a31b300c6ce26cb9dcac565b2f869.jpeg' %}");
+        background-size: cover;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+    .banner::after {
+        content: "";
+        background-color: rgba(0, 0, 0, 0.3);
+        position: absolute;
+        width: 100%;
+        height: 100%;
+    }
+    input, select, textarea {
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+    }
+    input {
+        width: calc(100% - 10px);
+        padding: 5px;
+    }
+    select {
+        width: 100%;
+        padding: 7px 0;
+        background: transparent;
+    }
+    textarea {
+        width: calc(100% - 12px);
+        padding: 5px;
+    }
+    .item:hover p, .item:hover i, .question:hover p, .question label:hover, input:hover::placeholder {
+        color: #892e9b;
+    }
+    .item input:hover, .item select:hover, .item textarea:hover {
+        border: 1px solid transparent;
+        box-shadow: 0 0 6px 0 #892e9b;
+        color: #892e9b;
+    }
+    .item {
+        position: relative;
+        margin: 10px 0;
+    }
+    input[type="date"]::-webkit-inner-spin-button {
+        display: none;
+    }
+    .item i, input[type="date"]::-webkit-calendar-picker-indicator {
+        position: absolute;
+        font-size: 20px;
+        color: #a9a9a9;
+    }
+    .item i {
+        right: 2%;
+        top: 30px;
+        z-index: 1;
+    }
+    [type="date"]::-webkit-calendar-picker-indicator {
+        right: 1%;
+        z-index: 2;
+        opacity: 0;
+        cursor: pointer;
+    }
+    input[type=radio], input[type=checkbox] {
+        display: none;
+    }
+    label.radio {
+        position: relative;
+        display: inline-block;
+        margin: 5px 20px 15px 0;
+        cursor: pointer;
+        padding-left: 25px; /* Add padding to the left of the label */
+    }
+    .question span {
+        margin-left: 30px;
+    }
+    label.radio:before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 3px; /* Adjust the position of the circle */
+        width: 17px;
+        height: 17px;
+        border-radius: 50%;
+        border: 2px solid #ccc;
+    }
+    input[type=radio]:checked + label:before, label.radio:hover:before {
+        border: 2px solid #892e9b;
+    }
+    label.radio:after {
+        content: "";
+        position: absolute;
+        top: 6px; /* Adjust the position of the checkmark */
+        left: 5px;
+        width: 8px;
+        height: 4px;
+        border: 3px solid #892e9b;
+        border-top: none;
+        border-right: none;
+        transform: rotate(-45deg);
+        opacity: 0;
+    }
+    input[type=radio]:checked + label:after {
+        opacity: 1;
+    }
+    .btn-block {
+        margin-top: 10px;
+        text-align: center;
+    }
+    button {
+        width: 150px;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        background: #892e9b;
+        font-size: 16px;
+        color: #fff;
+        cursor: pointer;
+    }
+    button:hover {
+        background: #b52ed1;
+    }
+    @media (min-width: 568px) {
+        .name-item, .city-item {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        .name-item input, .city-item input {
+            width: calc(50% - 20px);
+        }
+        .city-item select {
+            width: calc(50% - 8px);
+        }
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="testbox">
+        <form name="PersonalInformation" method="post">
+            {% csrf_token %}
+            <div class="banner">
+                <img src="" alt="Yoga Application Form">
+            </div>
+            <div class="item">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="item">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="item">
+                <label for="age">Age:</label>
+                <input type="number" id="age" name="age" min="0" required>
+            </div>
+            <div class="item">
+                <label for="gender">Gender:</label>
+                <select id="gender" name="gender" required>
+                    <option value="">Select Gender</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="other">Other</option>
+                    <option value="prefer_not_to_say">Prefer not to say</option>
+                </select>
+            </div>
+            <div class="item">
+                <label for="height">Height (cm):</label>
+                <input type="number" id="height" name="height" min="0" required>
+            </div>
+            <div class="item">
+                <label for="weight">Weight (kg):</label>
+                <input type="number" id="weight" name="weight" min="0" required>
+            </div>
+            <div class="item">
+                <label>Are you having trouble sleeping?</label>
+                <div>
+                    <input type="radio" id="yes" name="trouble_sleeping" value="True" required>
+                    <label for="yes" class="radio">Yes</label>
+                    <input type="radio" id="no" name="trouble_sleeping" value="False">
+                    <label for="no" class="radio">No</label>
+                </div>
+            </div>
+            <div class="item">
+                <label for="water">Drinking water per day:</label>
+                <select id="water" name="water" required>
+                    <option value="">Select water intake</option>
+                    <option value="1">1 litre</option>
+                    <option value="2">2 litres</option>
+                    <option value="3">3 litres</option>
+                    <option value="4">4 litres</option>
+                </select>
+            </div>
+            <div class="btn-block">
+                <button type="submit">Submit</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+{% endblock %} {% endcomment %}

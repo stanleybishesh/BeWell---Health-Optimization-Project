@@ -1,0 +1,596 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block style %}
+<link rel="stylesheet" href="{% static 'css/result.css' %}">
+{% endblock %}
+{% block content %}
+
+
+  <main>
+    <article>
+
+
+        <section class="section hero bg-dark has-after has-bg-image" id="home" aria-label="hero" data-section style="background-image: url('./assets/images/hero-bg.png')">
+            <div class="container">
+                <div class="hero-content">
+                    <p class="hero-subtitle">
+                        <strong class="strong">Welcome to</strong> Your Fitness Journey
+                    </p>
+
+                    
+                    <div class="hydration-content">
+                        <div class="timer-box">
+                          <h2>Your next drinking timing is:</h2>
+                          <div id="countdown">20:00</div>
+                        </div>
+                        <div class="buttons-box">
+                          <button id="taken-btn">Taken</button>
+                          <button id="skip-btn">Skip</button>
+                        </div>
+                        <div class="counter-box">
+                          <h3>Water Intake Count:</h3>
+                          <div id="counter">0</div>
+                        </div>
+                        <script>
+                          const waterInterval = {{ water_interval }}; // This should be set by Django
+                          const wake_up_time = {{ wake_up_time }}
+                          const sleep_hour = {{ sleep_hour }}
+                        </script>
+                        <script src="{% static 'js/hydration.js' %}"></script>
+                    </div>
+                      
+                      
+                      
+                      
+
+                    <p class="section-text">
+                        Thank you for completing our survey! Based on your inputs, we've tailored personalized recommendations to help you achieve your fitness goals.
+                    </p>
+                </div>
+                <div class="hero-banner">
+                    <img src="{% static 'web_image/hero-banner.png' %}" width="660" height="753" alt="hero banner" class="w-100">
+                    <img src="{% static 'web_image/hero-circle-one.png' %}" width="666" height="666" aria-hidden="true" alt="" class="circle circle-2">
+                    <img src="{% static 'web_image/hero-circle-two.png' %}" width="666" height="666" aria-hidden="true" alt="" class="circle circle-2">
+                </div>
+            </div>
+        </section>
+        
+
+
+
+      <section class="section about-us" id="about" aria-label="about">
+        <div class="container-content">
+
+          <div class="about-content">
+
+            <p class="section-subtitle">Food</p>
+            <p class="section-text">
+                {{ closest_food_obj.blog.html|safe }}
+            </p>
+          </div>
+
+          <div class="about-content">
+
+            <p class="section-subtitle">Exercise</p>
+
+            <h2 class="h2 section-title">Welcome To BeWell</h2>
+
+            <p class="section-text">
+                {{ closest_exercise.blog.html|safe }}
+            </p>
+          </div>
+
+          <div class="about-content">
+
+            <p class="section-subtitle">sleep</p>
+
+            <h2 class="h2 section-title">Welcome To BeWell</h2>
+
+            <p class="section-text">
+                {{ sleep.blog.html|safe }}
+            </p>
+          </div>
+          <div class="about-content">
+
+            <p class="section-subtitle">water</p>
+
+            <h2 class="h2 section-title">Welcome To BeWell</h2>
+
+            <p class="section-text">
+                {{ water.blog.html|safe }}
+            </p>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- 
+        - #CLASS
+      -->
+
+      <section class="section class bg-dark has-bg-image" id="class" aria-label="class"
+        style="">
+      {% comment %} <section class="section class bg-dark has-bg-image" id="class" aria-label="class"
+        style="background-image: url('./assets/images/classes-bg.png')"> {% endcomment %}
+        <div class="container">
+
+          <p class="section-subtitle">Categories</p>
+
+          <h2 class="h2 section-title text-center">Features of BeWell</h2>
+
+          <ul class="class-list has-scrollbar">
+
+            <li class="scrollbar-item">
+              <div class="class-card">
+
+                <figure class="card-banner img-holder" style="--width: 416; --height: 240;">
+                  <img src="{% static 'web_image/class-1.png' %}" width="52" height="52" loading="lazy" alt="Water Reminder"
+                    class="img-cover">
+                </figure>
+
+                <div class="card-content">
+
+                  <div class="title-wrapper">
+                
+                    <img src="{% static 'web_image/class-icon-1.png' %}" width="52" height="52" aria-hidden="true" alt=""
+                      class="title-icon">
+
+                    <h3 class="h3">
+                      <a href="#" class="card-title">Water Reminder</a>
+                    </h3>
+                  </div>
+
+                  <p class="card-text">
+                    Stay hydrated effortlessly with BeWell's Water Reminder. Set your preferred reminders based on your hydration goals—whether it's hourly prompts or specific times throughout the day. Achieve optimal hydration for a healthier you.                  
+                  </p>
+
+                </div>
+
+              </div>
+            </li>
+
+            <li class="scrollbar-item">
+              <div class="class-card">
+
+                <figure class="card-banner img-holder" style="--width: 416; --height: 240;">
+                  <img src="{% static 'web_image/class-2.jpg' %}" width="416" height="240" loading="lazy" alt="Dietary Guidance"
+                    class="img-cover">
+                </figure>
+
+                <div class="card-content">
+
+                  <div class="title-wrapper">
+                    <img src="{% static 'web_image/class-icon-2.png' %}" width="52" height="52" aria-hidden="true" alt=""
+                      class="title-icon">
+
+                    <h3 class="h3">
+                      <a href="#" class="card-title">Dietary Guidance</a>
+                    </h3>
+                  </div>
+
+                  <p class="card-text">
+                    Customize your meal plan with BeWell's Dietary Guidance. Tell us your daily meal preferences, and your health goals like weight loss or muscle gain. Our system creates a personalized diet routine to support your journey to better health.
+                  </p>
+
+
+                </div>
+
+              </div>
+            </li>
+
+            <li class="scrollbar-item">
+              <div class="class-card">
+
+                <figure class="card-banner img-holder" style="--width: 416; --height: 240;">
+                  <img src="{% static 'web_image/class-3.jpg' %}" width="416" height="240" loading="lazy" alt="Exercise Planning"
+                    class="img-cover">
+                </figure>
+
+                <div class="card-content">
+
+                  <div class="title-wrapper">
+                    <img src="{% static 'web_image/class-icon-3.png' %}" width="52" height="52" aria-hidden="true" alt=""
+                      class="title-icon">
+
+                    <h3 class="h3">
+                      <a href="#" class="card-title">Exercise Planning</a>
+                    </h3>
+                  </div>
+
+                  <p class="card-text">
+                    Customize your fitness journey with BeWell's Exercise Planning. Select weight loss, muscle gain, or cardio goals, and receive personalized workout reminders to help you achieve your fitness objectives.
+                  </p>
+
+                </div>
+
+              </div>
+            </li>
+
+            <li class="scrollbar-item">
+              <div class="class-card">
+
+                <figure class="card-banner img-holder" style="--width: 416; --height: 240;">
+                  <img src="{% static 'web_image/class-4.jpg' %}" width="416" height="240" loading="lazy" alt="The Fitness Pack"
+                    class="img-cover">
+                </figure>
+
+                <div class="card-content">
+
+                  <div class="title-wrapper">
+                    <img src="images/class-icon-4.jpg" width="52" height="52" aria-hidden="true" alt=""
+                      class="title-icon">
+
+                    <h3 class="h3">
+                      <a href="#" class="card-title">Sleep Schedule</a>
+                    </h3>
+                  </div>
+
+                  <p class="card-text">
+                    Manage your sleep effectively with BeWell's Sleep Schedule. Customize your bedtime, wake-up time, and preferred sleep duration to receive personalized reminders. Establish a structured sleep routine designed to optimize your rest and overall well-being.
+                  </p>                
+
+                </div>
+
+              </div>
+            </li>
+
+          </ul>
+
+        </div>
+      </section>
+
+
+
+
+
+
+    </article>
+  </main>
+
+
+
+
+
+  <!-- 
+    - #FOOTER
+  -->
+
+  <footer class="footer" id="footer">
+
+    <div class="section footer-top">
+      <div class="container">
+
+        <div class="footer-brand">
+
+          <a href="#home" class="logo">
+            <!-- <ion-icon name="barbell-sharp" aria-hidden="true"></ion-icon> -->
+            <img src="{% static 'web_image/logo.png' %}" alt="Logo" class="min-size">
+            <span class="span">BeWell</span>
+          </a>
+
+          <p class="footer-brand-text">
+            We are available in following time durations: 
+          </p>
+
+          <div class="wrapper">
+
+            <img src="{% static 'web_image/footer-clock.png' %}" width="34" height="34" loading="lazy" alt="Clock">
+
+            <ul class="footer-brand-list">
+
+              <li>
+                <p class="footer-brand-title">Monday - Friday</p>
+
+                <p>7:00Am - 10:00Pm</p>
+              </li>
+
+              <li>
+                <p class="footer-brand-title">Saturday - Sunday</p>
+
+                <p>7:00Am - 2:00Pm</p>
+              </li>
+
+            </ul>
+
+          </div>
+
+        </div>
+
+        <ul class="footer-list">
+
+          <li>
+            <p class="footer-list-title has-before">Our Links</p>
+          </li>
+
+          <li>
+            <a href="#home" class="footer-link">Home</a>
+          </li>
+
+          <li>
+            <a href="#about" class="footer-link">About Us</a>
+          </li>
+
+          <li>
+            <a href="#class" class="footer-link">Categories</a>
+          </li>
+
+          <li>
+            <a href="#footer" class="footer-link">Contact Us</a>
+          </li>
+
+        </ul>
+
+        <ul class="footer-list">
+
+          <li>
+            <p class="footer-list-title has-before">Contact Us</p>
+          </li>
+
+          <li class="footer-list-item">
+            <div class="icon">
+              <ion-icon name="location" aria-hidden="true"></ion-icon>
+            </div>
+
+            <address class="address footer-link">
+              Bagmati | Province-03, 4th Rajkulo, Kharibot, Imadol, Lalitpur
+            </address>
+          </li>
+
+          <li class="footer-list-item">
+            <div class="icon">
+              <ion-icon name="call" aria-hidden="true"></ion-icon>
+            </div>
+
+            <div>
+              <a href="tel:01-5522330" class="footer-link">01-5522330</a>
+
+              <a href="tel:01-5500112" class="footer-link">01-5500112</a>
+            </div>
+          </li>
+
+          <li class="footer-list-item">
+            <div class="icon">
+              <ion-icon name="mail" aria-hidden="true"></ion-icon>
+            </div>
+
+            <div>
+              <a href="mailto:info@bewell.com" class="footer-link">info@bewell.com</a>
+
+              <a href="mailto:services@bewell.com" class="footer-link">services@bewell.com</a>
+            </div>
+          </li>
+
+        </ul>
+
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container">
+
+        <p class="copyright">
+          &copy; 2024 BeWell. All Rights Reserved By <a href="#" class="copyright-link">Kathford Int'l College of Management.</a>
+        </p>
+
+      </div>
+    </div>
+
+  </footer>
+
+  <script src="{% static 'js/script.js' %}"></script>
+
+  <!-- 
+    - ionicon link
+  -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const countdownElement = document.getElementById('countdown');
+        const counterElement = document.getElementById('counter');
+        const takenBtn = document.getElementById('taken-btn');
+        const skipBtn = document.getElementById('skip-btn');
+        let timer;
+        let waterCount = 0;
+        let waterIntervalSeconds = waterInterval * 60;
+      
+        function startCountdown(duration) {
+          let timeRemaining = duration;
+          timer = setInterval(() => {
+            let minutes = Math.floor(timeRemaining / 60);
+            let seconds = timeRemaining % 60;
+      
+            minutes = minutes < 10 ? '0' + minutes : minutes;
+            seconds = seconds < 10 ? '0' + seconds : seconds;
+      
+            countdownElement.textContent = `${minutes}:${seconds}`;
+      
+            if (timeRemaining === 0) {
+              clearInterval(timer);
+              resetTimer();
+            } else {
+              timeRemaining--;
+            }
+          }, 1000);
+        }
+      
+        function resetTimer() {
+          clearInterval(timer);
+          startCountdown(waterIntervalSeconds);
+        }
+      
+        function incrementCounter() {
+          waterCount++;
+          counterElement.textContent = waterCount;
+        }
+      
+        takenBtn.addEventListener('click', () => {
+          incrementCounter();
+          resetTimer();
+        });
+      
+        skipBtn.addEventListener('click', () => {
+          resetTimer();
+        });
+      
+        // Initial start of the countdown
+        startCountdown(waterIntervalSeconds);
+      });
+      
+
+
+
+      {% comment %} notification for bed time and wake up time  {% endcomment %}
+
+
+
+      
+      document.addEventListener('DOMContentLoaded', () => {
+        // Retrieve wake-up time and sleep hours from Django template variables
+        const wakeUpTime = '{{ wake_up_time }}'; // Assuming this is a valid time format like 'HH:mm'
+        const sleepHours = parseInt('{{ sleep_hour }}', 10); // Convert to integer
+        
+        // Function to calculate bedtime notification
+        function calculateBedtimeNotification(wakeUpTime, sleepHours) {
+            // Parse wake-up time to Date object
+            const now = new Date();
+            const wakeUp = new Date(now.toDateString() + ' ' + wakeUpTime);
+            
+            // Calculate bedtime
+            const bedtime = new Date(wakeUp);
+            bedtime.setHours(bedtime.getHours() - sleepHours);
+    
+            // Schedule bedtime notification
+            const bedtimeNotificationTime = new Date(bedtime);
+            bedtimeNotificationTime.setSeconds(0); // Round seconds to zero for accuracy
+    
+            // Check if bedtime is in the past (for immediate notification if the page is loaded after bedtime)
+            if (bedtimeNotificationTime < now) {
+                bedtimeNotificationTime.setDate(bedtimeNotificationTime.getDate() + 1); // Next day
+            }
+    
+            // Set up notification
+            scheduleNotification('Bedtime Reminder', 'It\'s time to go to bed!', bedtimeNotificationTime);
+        }
+    
+        // Function to calculate wake-up notification
+        function calculateWakeUpNotification(wakeUpTime) {
+            // Parse wake-up time to Date object
+            const now = new Date();
+            const wakeUp = new Date(now.toDateString() + ' ' + wakeUpTime);
+    
+            // Schedule wake-up notification
+            scheduleNotification('Wake Up Reminder', 'Wake up! It\'s a new day!', wakeUp);
+        }
+    
+        // Function to schedule notifications
+        function scheduleNotification(title, body, time) {
+            if ('Notification' in window) {
+                Notification.requestPermission().then(permission => {
+                    if (permission === 'granted') {
+                        const notification = new Notification(title, {
+                            body: body,
+                            icon: 'path_to_your_icon.png' // Optional: Customize with your own icon
+                        });
+    
+                        notification.onclick = function() {
+                            window.focus();
+                        };
+    
+                        // Log the scheduled time for debugging
+                        console.log(`Scheduled ${title} notification at ${time}`);
+                    }
+                });
+            }
+        }
+    
+        // Calculate and schedule notifications on page load
+        calculateBedtimeNotification(wakeUpTime, sleepHours);
+        calculateWakeUpNotification(wakeUpTime);
+    });
+    
+  </script>
+  
+{% endblock %}
+
+
+
+
+
+
+
+
+
+{% comment %} {% extends "base.html" %}
+{% include 'django_quill/media.html' %}
+{% block style %}
+<style>
+    .report-container {
+        max-width: 800px;
+        margin: 20px auto;
+        padding: 20px;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        background-color: #f9f9f9;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    .report-header {
+        text-align: center;
+        margin-bottom: 30px;
+    }
+    .report-section {
+        margin-bottom: 20px;
+    }
+    .report-section h3 {
+        margin-bottom: 10px;
+        color: #333;
+    }
+    .report-section p {
+        margin: 0;
+        padding: 0;
+        color: #666;
+    }
+    .report-section .content {
+        padding: 10px;
+        background-color: #fff;
+        border-radius: 5px;
+        box-shadow: 0 0 5px rgba(0,0,0,0.05);
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="report-container">
+    <div class="report-header">
+        <h1>Health and Wellness Report</h1>
+        <p>Personalized recommendations based on your inputs</p>
+    </div>
+    <div class="report-section">
+        <h3>Recommended Food</h3>
+        <div class="content">
+            {{ closest_food_obj.blog.html|safe }}
+        </div>
+    </div>
+    <div class="report-section">
+        <h3>Recommended Exercise</h3>
+        <div class="content">
+            {{ closest_exercise.blog.html|safe }}
+        </div>
+    </div>
+    <div class="report-section">
+        <h3>Sleep</h3>
+        <div class="content">
+            <p>{{ sleep.title }}</p>
+            {{ sleep.blog.html|safe }}
+        </div>
+    </div>
+    <div class="report-section">
+        <h3>water</h3>
+        <div class="content">
+            {{ water.blog.html|safe }}
+        </div>
+    </div>
+</div>
+{% endblock %} {% endcomment %}
